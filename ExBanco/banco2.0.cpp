@@ -45,7 +45,7 @@ void depositar(float deposito) {
     }
 }
 
-int menu() {
+int menu(){
     int i;
     printf("===================================BANCO===================================\n");
     printf("Seja bem-vindo ao seu banco! Como podemos ajudar hoje?\n");
@@ -55,8 +55,17 @@ int menu() {
     printf("0 - Sair\n");
     printf("Escolha: ");
     scanf("%d", &i);
-    Sleep(500);
     system("cls");
+    
+    printf("Carregando");
+    
+	for (int j = 0; j < 3; j++) {
+    	printf(".");
+   		Sleep(500);
+	}
+	
+	printf("\n");
+
     return i;
 }
 
@@ -64,19 +73,8 @@ int main() {
     int i = 5, e;
 
     while (i != 0) {
-        printf("Deseja entrar no banco? (0 - Nao / 1 - Sim): ");
-        scanf("%d", &e);
-
-        if (e == 0) {
-            i = 0;
-        } else if (e == 1) {
-            i = menu();
-        } else {
-            printf("Opcao invalida! Tente novamente\n");
-            Sleep(1000);
-            system("cls");
-            continue;
-        }
+		
+		i = menu();
 
         switch (i) {
             case 1:
@@ -103,5 +101,6 @@ int main() {
                 break;
         }
     }
+    
     return 0;
 }
